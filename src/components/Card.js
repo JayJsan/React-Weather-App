@@ -31,9 +31,9 @@ const Card = () => {
   }, [lat, long]);
 
   return (
-    <Box>
+    <Container>
       {data.name !== undefined && (
-        <Container>
+        <Box>
           <p>Latitude is: {lat}</p>
           <p>Longittude is: {long}</p>
           <p>
@@ -53,7 +53,7 @@ const Card = () => {
           </p>
           <p>
             Sunset:{" "}
-            {data.sys.sunrise !== undefined
+            {data.sys.sunset !== undefined
               ? new Date(data.sys.sunset * 1000).toLocaleTimeString("en-IN")
               : "Sunset not found."}
           </p>
@@ -72,9 +72,9 @@ const Card = () => {
           </p>
           <p>Day: {moment().format("dddd")}</p>
           <p>Date: {moment().format("LL")}</p>
-        </Container>
+        </Box>
       )}
-    </Box>
+    </Container>
   );
 };
 
