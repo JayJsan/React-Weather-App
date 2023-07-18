@@ -1,8 +1,8 @@
 import React from "react";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
-const Sunstats = (weatherData) => {
-  return (
+const Sunstats = ({ weatherData }) => {
+  return typeof weatherData.main !== "undefined" ? (
     <Grid container spacing={2}>
       <Grid item xs={2}>
         <p>Sunset</p>
@@ -24,6 +24,8 @@ const Sunstats = (weatherData) => {
         </p>
       </Grid>
     </Grid>
+  ) : (
+    <div></div>
   );
 };
 

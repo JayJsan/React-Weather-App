@@ -2,8 +2,8 @@ import React from "react";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import moment from "moment";
 
-const Weather = (weatherData) => {
-  return typeof weatherData !== "undefined" ? (
+const Weather = ({ weatherData }) => {
+  return typeof weatherData.main !== "undefined" ? (
     <Grid container spacing={2}>
       <Grid item xs={2}>
         <p>Day: {moment().format("dddd")}</p>

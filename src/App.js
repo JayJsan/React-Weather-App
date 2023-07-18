@@ -8,11 +8,11 @@ import Weather from "./components/Weather";
 import Sunstats from "./components/Sunstats";
 
 function App() {
-  const [lat, setLat] = useState([]);
-  const [long, setLong] = useState([]);
+  const [lat, setLat] = useState(-36.848461);
+  const [long, setLong] = useState(174.763336);
   const [data, setData] = useState([]);
   const defaultLat = -36.848461;
-  const defaultLong = 174.763336;
+  const defaultLon = 174.763336;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,16 +22,12 @@ function App() {
       });
 
       await fetch(
-        `${process.env.REACT_APP_API_URL}/weather/?lat=${
-          typeof lat !== "undefined" ? lat : defaultLat
-        }&lon=${
-          typeof long !== "undefined" ? long : defaultLong
-        }&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
+        `${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
       )
         .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-          console.log(data);
+        .then((response) => {
+          setData(response);
+          console.log(response);
         });
     };
     fetchData();
