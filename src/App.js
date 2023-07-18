@@ -11,8 +11,6 @@ function App() {
   const [lat, setLat] = useState(-36.848461);
   const [long, setLong] = useState(174.763336);
   const [data, setData] = useState([]);
-  const defaultLat = -36.848461;
-  const defaultLon = 174.763336;
 
   useEffect(() => {
     const fetchData = async () => {

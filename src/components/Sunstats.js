@@ -5,7 +5,7 @@ const Sunstats = ({ weatherData }) => {
   return typeof weatherData.main !== "undefined" ? (
     <Grid container spacing={2}>
       <Grid item xs={2}>
-        <p>Sunset</p>
+        <p>Sunrise</p>
         <p>
           {weatherData.sys.sunrise !== undefined
             ? new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString(
@@ -15,6 +15,7 @@ const Sunstats = ({ weatherData }) => {
         </p>
       </Grid>
       <Grid item xs={2}>
+        <p>Sunset</p>
         <p>
           {weatherData.sys.sunset !== undefined
             ? new Date(weatherData.sys.sunset * 1000).toLocaleTimeString(
