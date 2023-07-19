@@ -1,20 +1,20 @@
 import React from "react";
-import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
+import { Typography, Container } from "@mui/material";
+
+// in later feature, be able to change locations
 
 const Location = ({ weatherData }) => {
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={2}>
-        <p>Your location is</p>
-      </Grid>
-      <Grid item xs="auto">
-        <p>
-          {typeof weatherData.main != "undefined"
-            ? weatherData.name
-            : "not found."}
-        </p>
-      </Grid>
-    </Grid>
+    <Container>
+      <Typography variant="h4" sx={{ color: "white" }}>
+        Your location is
+      </Typography>
+      <Typography variant="h4" sx={{ color: "white", fontWeight: "bold" }}>
+        {typeof weatherData.main != "undefined"
+          ? weatherData.name
+          : "not found."}
+      </Typography>
+    </Container>
   );
 };
 

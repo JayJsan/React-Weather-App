@@ -6,9 +6,13 @@ import { Container, Divider } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Weather from "./components/Weather";
 import Sunstats from "./components/Sunstats";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 function App() {
-  const [lat, setLat] = useState(-36.848461);
+  const [lat, setLat] = useState(-36.84846);
   const [long, setLong] = useState(174.763336);
   const [data, setData] = useState([]);
 
@@ -32,13 +36,13 @@ function App() {
   }, [lat, long]);
 
   return (
-    <Container className="App">
-      <Location weatherData={data}></Location>
-      <Grid>
+    <div className="App-header">
+      <Container className="App">
+        <Location weatherData={data}></Location>
         <Weather weatherData={data}></Weather>
         <Sunstats weatherData={data}></Sunstats>
-      </Grid>
-    </Container>
+      </Container>
+    </div>
   );
 }
 
