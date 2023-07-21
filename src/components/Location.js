@@ -5,17 +5,44 @@ import { Typography, Container } from "@mui/material";
 
 const Location = ({ weatherData }) => {
   return (
-    <Container>
-      <Typography variant="h4" sx={{ color: "white" }}>
-        Your location is
-      </Typography>
-      <Typography variant="h4" sx={{ color: "white", fontWeight: "bold" }}>
-        {typeof weatherData.main != "undefined"
-          ? weatherData.name
-          : "not found."}
-      </Typography>
-    </Container>
+    <div style={styles.container}>
+      <div style={styles.section}>
+        <h3 style={styles.text}>Your location is</h3>
+        <h3 style={styles.text}>
+          {typeof weatherData.main != "undefined"
+            ? weatherData.name
+            : "not found. Please enable location."}
+        </h3>
+      </div>
+    </div>
   );
+};
+
+// TEMPORARY STYLES - CHANGE LATER
+const styles = {
+  container: {
+    margin: "auto",
+    display: "flex",
+    alignItems: "centre",
+    justifyContent: "centre",
+    flexDirection: "row",
+    padding: "1rem",
+  },
+  section: {
+    backgroundColor: "rgba(0,0,0, 0.4)",
+    display: "flex",
+    padding: "1rem",
+    paddingTop: "0.25rem",
+    paddingBottom: "0.25rem",
+    flexDirection: "row",
+    borderRadius: "24px",
+  },
+  text: {
+    fontWeight: "bold",
+    padding: "0.4rem",
+    alignItems: "centre",
+    justifyContent: "centre",
+  },
 };
 
 export default Location;

@@ -37,11 +37,11 @@ function App() {
 
   return (
     <div className="App-header">
-      <Container className="App">
+      <div className="App">
         <Location weatherData={data}></Location>
         <Weather weatherData={data}></Weather>
         <Sunstats weatherData={data}></Sunstats>
-      </Container>
+      </div>
     </div>
   );
 }
