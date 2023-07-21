@@ -1,5 +1,4 @@
 import React from "react";
-import { Typography, Container } from "@mui/material";
 
 // in later feature, be able to change locations
 

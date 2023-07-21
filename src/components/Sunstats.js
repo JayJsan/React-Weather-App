@@ -1,34 +1,58 @@
 import React from "react";
-import Grid from "@mui/material/Unstable_Grid2/Grid2";
-import { Typography } from "@mui/material";
 
 const Sunstats = ({ weatherData }) => {
   return typeof weatherData.main !== "undefined" ? (
-    <Grid container spacing={2}>
-      <Grid item xs={2}>
-        <Typography>Sunrise</Typography>
-        <Typography>
+    <div style={styles.container}>
+      <div style={styles.section}>
+        <h3 style={styles.text}>Sunrise:</h3>
+        <h3 style={styles.text}>
           {weatherData.sys.sunrise !== undefined
             ? new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString(
                 "en-IN"
               )
-            : "Sunrise not found."}
-        </Typography>
-      </Grid>
-      <Grid item xs={2}>
-        <Typography>Sunset</Typography>
-        <Typography>
+            : "Sunrise time not found."}
+        </h3>
+      </div>
+      <div style={styles.section}>
+        <h3 style={styles.text}>Sunset:</h3>
+        <h3 style={styles.text}>
           {weatherData.sys.sunset !== undefined
             ? new Date(weatherData.sys.sunset * 1000).toLocaleTimeString(
                 "en-IN"
               )
-            : "Sunset not found."}
-        </Typography>
-      </Grid>
-    </Grid>
+            : "Sunset time not found."}
+        </h3>
+      </div>
+    </div>
   ) : (
     <div></div>
   );
+};
+
+const styles = {
+  container: {
+    margin: "auto",
+    display: "flex",
+    alignItems: "centre",
+    justifyContent: "centre",
+    flexDirection: "row",
+    padding: "1rem",
+  },
+  section: {
+    backgroundColor: "rgba(0,0,0, 0.4)",
+    display: "flex",
+    padding: "1rem",
+    paddingTop: "0.2rem",
+    paddingBottom: "0.2rem",
+    flexDirection: "row",
+    borderRadius: "24px",
+  },
+  text: {
+    fontWeight: "bold",
+    padding: "0.4rem",
+    alignItems: "centre",
+    justifyContent: "centre",
+  },
 };
 
 export default Sunstats;
