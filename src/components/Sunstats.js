@@ -1,27 +1,33 @@
 import React from "react";
+import sunsetIcon from "../resources/images/SunsetIcon.png";
+import sunriseIcon from "../resources/images/SunriseIcon.png";
 
 const Sunstats = ({ weatherData }) => {
   return typeof weatherData.main !== "undefined" ? (
     <div style={styles.container}>
       <div style={styles.section}>
-        <h3 style={styles.text}>Sunrise:</h3>
-        <h3 style={styles.text}>
-          {weatherData.sys.sunrise !== undefined
-            ? new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString(
-                "en-IN"
-              )
-            : "Sunrise time not found."}
-        </h3>
-      </div>
-      <div style={styles.section}>
-        <h3 style={styles.text}>Sunset:</h3>
-        <h3 style={styles.text}>
-          {weatherData.sys.sunset !== undefined
-            ? new Date(weatherData.sys.sunset * 1000).toLocaleTimeString(
-                "en-IN"
-              )
-            : "Sunset time not found."}
-        </h3>
+        <div>
+          <h3 style={styles.text}>Sunrise</h3>
+          <h3 style={styles.text}>
+            {weatherData.sys.sunrise !== undefined
+              ? new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString(
+                  "en-IN"
+                )
+              : "Sunrise time not found."}
+          </h3>
+        </div>
+        <img src={sunriseIcon} alt="Sunrise Icon" />
+        <div>
+          <h3 style={styles.text}>Sunset</h3>
+          <h3 style={styles.text}>
+            {weatherData.sys.sunset !== undefined
+              ? new Date(weatherData.sys.sunset * 1000).toLocaleTimeString(
+                  "en-IN"
+                )
+              : "Sunset time not found."}
+          </h3>
+          <img src={sunsetIcon} alt="Sunset Icon" />
+        </div>
       </div>
     </div>
   ) : (

@@ -2,9 +2,14 @@
   border: 1px solid black;
 } */
 
+* {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
 .App {
   text-align: center;
-  background-image: url("./resources/images/Sunny.jpg");
+  background-image: url("./resources/backgrounds/Sunny.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
 }

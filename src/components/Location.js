@@ -5,12 +5,14 @@ import React from "react";
 const Location = ({ weatherData }) => {
   return (
     <div style={styles.container}>
+      <div style={styles.outsideSection}>
+        <h3 style={styles.outsideText}>Your location is</h3>
+      </div>
       <div style={styles.section}>
-        <h3 style={styles.text}>Your location is</h3>
         <h3 style={styles.text}>
           {typeof weatherData.main != "undefined"
             ? weatherData.name
-            : "not found. Please enable location."}
+            : "not found. Please enable your location."}
         </h3>
       </div>
     </div>
@@ -36,8 +38,23 @@ const styles = {
     flexDirection: "row",
     borderRadius: "24px",
   },
+  outsideSection: {
+    display: "flex",
+    padding: "1rem",
+    paddingTop: "0.25rem",
+    paddingBottom: "0.25rem",
+    paddingRight: "0px",
+    flexDirection: "row",
+    borderRadius: "24px",
+  },
   text: {
-    fontWeight: "bold",
+    fontWeight: "700",
+    padding: "0.4rem",
+    alignItems: "centre",
+    justifyContent: "centre",
+  },
+  outsideText: {
+    fontWeight: "500",
     padding: "0.4rem",
     alignItems: "centre",
     justifyContent: "centre",
