@@ -1,3 +1,17 @@
+# Demo Pics
+
+## Cloudy Day in Auckland, NZ
+
+![Cloudy Day in Auckland, NZ](readmeresources/CloudyDay-Auckland.PNG)
+
+## Clear Night in Paris, France
+
+![Cloudy Day in Auckland, NZ](readmeresources/ClearNight-Paris.PNG)
+
+## Rainy Night in London, England
+
+![Cloudy Day in Auckland, NZ](readmeresources/RainyNight-London.PNG)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

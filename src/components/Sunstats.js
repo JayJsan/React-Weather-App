@@ -15,12 +15,7 @@ const Sunstats = ({ weatherData }) => {
                     (weatherData.sys.sunrise + weatherData.timezone) * 1000
                   )
                     .toLocaleTimeString("en-IN")
-                    .slice(0, 4)}${new Date(
-                    (weatherData.sys.sunrise + weatherData.timezone) * 1000
-                  )
-                    .toLocaleTimeString("en-IN")
-                    .slice(7, 10)
-                    .toUpperCase()}`
+                    .slice(0, 4)} AM`
                 : "Sunrise time not found."}
             </h3>
           </div>
@@ -40,12 +35,7 @@ const Sunstats = ({ weatherData }) => {
                     (weatherData.sys.sunset + weatherData.timezone) * 1000
                   )
                     .toLocaleTimeString("en-IN")
-                    .slice(0, 4)}${new Date(
-                    (weatherData.sys.sunset + weatherData.timezone) * 1000
-                  )
-                    .toLocaleTimeString("en-IN")
-                    .slice(7, 10)
-                    .toUpperCase()}`
+                    .slice(0, 4)} PM`
                 : "Sunset time not found."}
             </h3>
           </div>
