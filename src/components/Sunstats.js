@@ -19,13 +19,13 @@ const Sunstats = ({ weatherData }) => {
                 : "Sunrise time not found."}
             </h3>
           </div>
-          <div>
-            <img src={sunriseIcon} alt="Sunrise Icon" style={styles.image} />
+          <div style={styles.imageContainer}>
+            <img src={sunsetIcon} alt="Sunset Icon" style={styles.image} />
           </div>
         </div>
         <div>
           <div style={styles.imageContainer}>
-            <img src={sunsetIcon} alt="Sunset Icon" style={styles.image} />
+            <img src={sunriseIcon} alt="Sunrise Icon" style={styles.image} />
           </div>
           <div>
             <h3 style={styles.text}>Sunset</h3>
