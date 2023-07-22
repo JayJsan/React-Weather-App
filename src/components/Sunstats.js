@@ -1,6 +1,6 @@
 import React from "react";
-import sunsetIcon from "../resources/images/SunsetIconNoPadding.png";
-import sunriseIcon from "../resources/images/SunriseIconNoPadding.png";
+import sunsetIcon from "../resources/images/SunsetIcon.png";
+import sunriseIcon from "../resources/images/SunriseIcon.png";
 
 const Sunstats = ({ weatherData }) => {
   return typeof weatherData.main !== "undefined" ? (
@@ -20,10 +20,14 @@ const Sunstats = ({ weatherData }) => {
                 : "Sunrise time not found."}
             </h3>
           </div>
-          <img src={sunriseIcon} alt="Sunrise Icon" style={styles.image} />
+          <div>
+            <img src={sunriseIcon} alt="Sunrise Icon" style={styles.image} />
+          </div>
         </div>
         <div>
-          <img src={sunsetIcon} alt="Sunset Icon" style={styles.image} />
+          <div style={styles.imageContainer}>
+            <img src={sunsetIcon} alt="Sunset Icon" style={styles.image} />
+          </div>
           <div>
             <h3 style={styles.text}>Sunset</h3>
             <h3 style={styles.text}>
@@ -68,10 +72,15 @@ const styles = {
     padding: "0.4rem",
     alignItems: "centre",
     justifyContent: "centre",
+    margin: "auto",
+    textShadow: "2px 2px 2px rgba(0,0,0,0.6)",
   },
   image: {
-    width: "128px",
-    height: "128px",
+    width: "64px",
+    height: "64px",
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
 };
 

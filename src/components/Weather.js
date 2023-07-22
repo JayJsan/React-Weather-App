@@ -40,7 +40,7 @@ const Weather = ({ weatherData }) => {
         </h3>
         <div>
           <img src={weatherIcon} alt="weatherIcon" />
-          <h3 style={styles.text}>
+          <h3 style={styles.weatherText}>
             {" "}
             {typeof weatherData.weather[0].main !== "undefined"
               ? weatherData.weather[0].main
@@ -77,13 +77,23 @@ const styles = {
     padding: "0.4rem",
     alignItems: "centre",
     justifyContent: "centre",
+    textShadow: "2px 2px 2px rgba(0,0,0,0.6)",
   },
   humidityText: {
+    fontSize: "1rem",
     fontWeight: "400",
     padding: "0.4rem",
     alignItems: "centre",
     justifyContent: "centre",
     alignSelf: "flex-end",
+    textShadow: "2px 2px 2px rgba(0,0,0,0.6)",
+  },
+  weatherText: {
+    margin: "auto",
+    textAlign: "centre",
+    fontWeight: "bold",
+    padding: "0.4rem",
+    textShadow: "2px 2px 2px rgba(0,0,0,0.6)",
   },
 };
 

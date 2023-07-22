@@ -52,12 +52,14 @@ const styles = {
     padding: "0.4rem",
     alignItems: "centre",
     justifyContent: "centre",
+    textShadow: "2px 2px 2px rgba(0,0,0,0.6)",
   },
   outsideText: {
     fontWeight: "500",
     padding: "0.4rem",
     alignItems: "centre",
     justifyContent: "centre",
+    textShadow: "2px 2px 2px rgba(0,0,0,0.6)",
   },
 };
 
