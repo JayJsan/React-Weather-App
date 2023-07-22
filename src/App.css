@@ -7,15 +7,18 @@
   font-weight: 300;
 }
 
-.App {
+/* .App {
   text-align: center;
   background-image: url("./resources/backgrounds/Sunny.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
-}
+  background-size: cover;
+  border-radius: 24px;
+} */
 
 .App-header {
   background-color: #282c34;
+  height: 100vh;
+  display: flex;
   align-items: center;
   justify-content: center;
   color: white;

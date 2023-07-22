@@ -31,11 +31,12 @@ const Weather = ({ weatherData }) => {
           </h1>
           <h3 style={styles.text}>{moment().format("LL")}</h3>
         </div>
-        <h3 style={styles.text}>
+        <h3 style={styles.humidityText}>
           Humidity:{" "}
           {typeof weatherData.main.humidity !== "undefined"
             ? weatherData.main.humidity
-            : "Humidity not found."}{" "}
+            : "Humidity not found."}
+          {"%"}
         </h3>
         <div>
           <img src={weatherIcon} alt="weatherIcon" />
@@ -76,6 +77,13 @@ const styles = {
     padding: "0.4rem",
     alignItems: "centre",
     justifyContent: "centre",
+  },
+  humidityText: {
+    fontWeight: "400",
+    padding: "0.4rem",
+    alignItems: "centre",
+    justifyContent: "centre",
+    alignSelf: "flex-end",
   },
 };
 

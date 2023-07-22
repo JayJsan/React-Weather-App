@@ -1,32 +1,42 @@
 import React from "react";
-import sunsetIcon from "../resources/images/SunsetIcon.png";
-import sunriseIcon from "../resources/images/SunriseIcon.png";
+import sunsetIcon from "../resources/images/SunsetIconNoPadding.png";
+import sunriseIcon from "../resources/images/SunriseIconNoPadding.png";
 
 const Sunstats = ({ weatherData }) => {
   return typeof weatherData.main !== "undefined" ? (
     <div style={styles.container}>
       <div style={styles.section}>
         <div>
-          <h3 style={styles.text}>Sunrise</h3>
-          <h3 style={styles.text}>
-            {weatherData.sys.sunrise !== undefined
-              ? new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString(
-                  "en-IN"
-                )
-              : "Sunrise time not found."}
-          </h3>
+          <div>
+            <h3 style={styles.text}>Sunrise</h3>
+            <h3 style={styles.text}>
+              {weatherData.sys.sunrise !== undefined
+                ? `${new Date(weatherData.sys.sunrise * 1000)
+                    .toLocaleTimeString("en-IN")
+                    .slice(0, 4)}${new Date(weatherData.sys.sunset * 1000)
+                    .toLocaleTimeString("en-IN")
+                    .slice(7, 10)
+                    .toUpperCase()}`
+                : "Sunrise time not found."}
+            </h3>
+          </div>
+          <img src={sunriseIcon} alt="Sunrise Icon" style={styles.image} />
         </div>
-        <img src={sunriseIcon} alt="Sunrise Icon" />
         <div>
-          <h3 style={styles.text}>Sunset</h3>
-          <h3 style={styles.text}>
-            {weatherData.sys.sunset !== undefined
-              ? new Date(weatherData.sys.sunset * 1000).toLocaleTimeString(
-                  "en-IN"
-                )
-              : "Sunset time not found."}
-          </h3>
-          <img src={sunsetIcon} alt="Sunset Icon" />
+          <img src={sunsetIcon} alt="Sunset Icon" style={styles.image} />
+          <div>
+            <h3 style={styles.text}>Sunset</h3>
+            <h3 style={styles.text}>
+              {weatherData.sys.sunset !== undefined
+                ? `${new Date(weatherData.sys.sunset * 1000)
+                    .toLocaleTimeString("en-IN")
+                    .slice(0, 4)}${new Date(weatherData.sys.sunset * 1000)
+                    .toLocaleTimeString("en-IN")
+                    .slice(7, 10)
+                    .toUpperCase()}`
+                : "Sunset time not found."}
+            </h3>
+          </div>
         </div>
       </div>
     </div>
@@ -58,6 +68,10 @@ const styles = {
     padding: "0.4rem",
     alignItems: "centre",
     justifyContent: "centre",
+  },
+  image: {
+    width: "128px",
+    height: "128px",
   },
 };
 
