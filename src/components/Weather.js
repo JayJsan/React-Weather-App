@@ -1,22 +1,38 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 
-const Weather = ({ weatherData }) => {
-  const [time, setTime] = useState(moment().format("dddd, hh:mm A"));
+const Weather = ({ weatherData, currentTime }) => {
+  const [time, setTime] = useState(
+    moment()
+      .utcOffset(parseInt(weatherData.timezone) / 3600)
+      .format("dddd, hh:mm A")
+  );
   const [weatherIcon, setWeatherIcon] = useState(
     "https://openweathermap.org/img/wn/10d@2x.png"
   );
 
   useEffect(() => {
-    // update current time every minute
+    // update current time every yminute
     const currentTime = setInterval(() => {
-      setTime(moment().format("dddd, hh:mm A"));
+      setTime(
+        moment()
+          .utcOffset(parseInt(weatherData.timezone) / 3600)
+          .format("dddd, hh:mm A")
+      );
       setWeatherIcon(
-        `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
+        `https://openweathermap.org/img/wn/${
+          typeof weatherData.weather !== "undefined"
+            ? weatherData.weather[0].icon
+            : "01d"
+        }@2x.png`
       );
     }, 1000);
     return () => clearInterval(currentTime);
   });
+
+  useEffect(() => {
+    setTime(currentTime);
+  }, [currentTime]);
 
   return typeof weatherData.main !== "undefined" ? (
     <div style={styles.container}>
@@ -29,7 +45,11 @@ const Weather = ({ weatherData }) => {
               : "Temp not found."}
             &deg;C
           </h1>
-          <h3 style={styles.text}>{moment().format("LL")}</h3>
+          <h3 style={styles.text}>
+            {moment()
+              .utcOffset(parseInt(weatherData.timezone) / 3600)
+              .format("LL")}
+          </h3>
         </div>
         <h3 style={styles.humidityText}>
           Humidity:{" "}
@@ -39,7 +59,15 @@ const Weather = ({ weatherData }) => {
           {"%"}
         </h3>
         <div>
-          <img src={weatherIcon} alt="weatherIcon" />
+          <img
+            src={weatherIcon}
+            alt="weatherIcon"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.2)",
+              borderRadius: "100px",
+              border: "0.8px solid rgba(255,255,255,0.4)",
+            }}
+          />
           <h3 style={styles.weatherText}>
             {" "}
             {typeof weatherData.weather[0].main !== "undefined"
@@ -90,7 +118,7 @@ const styles = {
   },
   weatherText: {
     margin: "auto",
-    textAlign: "centre",
+    textAlign: "center",
     fontWeight: "bold",
     padding: "0.4rem",
     textShadow: "2px 2px 2px rgba(0,0,0,0.6)",
