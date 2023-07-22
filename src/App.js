@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Location from "./components/Location";
 import Weather from "./components/Weather";
 import Sunstats from "./components/Sunstats";
@@ -9,20 +9,7 @@ function App() {
   const [long, setLong] = useState(174.763336);
   const [data, setData] = useState([]);
   const [weather, setWeather] = useState("Undetermined");
-
-  const changeWeatherBG = () => {
-    if (data.weather === "undefined") {
-      setWeather("Undetermined");
-      return;
-    }
-    if (data.weather[0].main === "Clouds") {
-      setWeather("CloudyDay");
-    } else if (data.weather[0].main === "Rain") {
-      setWeather("RainyDay");
-    } else if (data.weather[0].main === "Clear") {
-      setWeather("SunnyDay");
-    }
-  };
+  useMemo(() => changeWeatherBG(data, setWeather), [data]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -92,6 +79,23 @@ const styles = {
     alignItems: "centre",
     justifyContent: "centre",
   },
+};
+
+const changeWeatherBG = (data, setWeather) => {
+  if (
+    !Array.isArray(data.weather) ||
+    typeof data.weather[0].main === "undefined"
+  ) {
+    setWeather("Undetermined");
+    return;
+  }
+  if (data.weather[0].main === "Clouds") {
+    setWeather("CloudyDay");
+  } else if (data.weather[0].main === "Rain") {
+    setWeather("RainyDay");
+  } else if (data.weather[0].main === "Clear") {
+    setWeather("SunnyDay");
+  }
 };
 
 export default App;
