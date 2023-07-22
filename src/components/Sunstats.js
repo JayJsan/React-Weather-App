@@ -11,9 +11,13 @@ const Sunstats = ({ weatherData }) => {
             <h3 style={styles.text}>Sunrise</h3>
             <h3 style={styles.text}>
               {weatherData.sys.sunrise !== undefined
-                ? `${new Date(weatherData.sys.sunrise * 1000)
+                ? `${new Date(
+                    (weatherData.sys.sunrise + weatherData.timezone) * 1000
+                  )
                     .toLocaleTimeString("en-IN")
-                    .slice(0, 4)}${new Date(weatherData.sys.sunset * 1000)
+                    .slice(0, 4)}${new Date(
+                    (weatherData.sys.sunrise + weatherData.timezone) * 1000
+                  )
                     .toLocaleTimeString("en-IN")
                     .slice(7, 10)
                     .toUpperCase()}`
@@ -32,9 +36,13 @@ const Sunstats = ({ weatherData }) => {
             <h3 style={styles.text}>Sunset</h3>
             <h3 style={styles.text}>
               {weatherData.sys.sunset !== undefined
-                ? `${new Date(weatherData.sys.sunset * 1000)
+                ? `${new Date(
+                    (weatherData.sys.sunset + weatherData.timezone) * 1000
+                  )
                     .toLocaleTimeString("en-IN")
-                    .slice(0, 4)}${new Date(weatherData.sys.sunset * 1000)
+                    .slice(0, 4)}${new Date(
+                    (weatherData.sys.sunset + weatherData.timezone) * 1000
+                  )
                     .toLocaleTimeString("en-IN")
                     .slice(7, 10)
                     .toUpperCase()}`
